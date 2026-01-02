@@ -22,3 +22,86 @@
   font-weight: 700;
   src: url('./assets/fonts/inter-v20-latin-700.woff2') format('woff2');
 }
+
+/* General Typography */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+.main__container {
+  padding: 1.5rem;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__title {
+  font-size: 1.5rem;
+
+  margin-bottom: 0.5rem;
+}
+
+.header__divider {
+  height: 1px;
+  background-color: var(--line-color);
+  margin: 1rem 0;
+}
+
+.header__subtitle {
+  color: var(--text-secondary);
+}
+
+.social__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   place-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.social__header {
+  display: flex;
+}
+
+.social__stats {
+  text-align: center;
+}
+
+.social__number {
+  font-size: 2.5rem;
+}
+
+/* Overview Section */
+.overview__title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.overview__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.overview__content {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.overview__header,
+.overview__stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.overview__views {
+  font-size: 1.5rem;
+}
