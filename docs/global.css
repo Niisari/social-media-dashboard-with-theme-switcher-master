@@ -31,22 +31,23 @@
 
 --Blue-600: hsl(208, 92%, 53%); /* Facebook */
 --Blue-500: hsl(203, 89%, 53%); /* Twitter */
---Linear-gradient: hsl(37, 97%, 70%) to hsl(5, 77%, 71%) to hsl(329, 70%, 58%); /* Instagram */
+--instagram-gradient: linear-gradient(
+    90deg,
+    hsl(37, 97%, 70%),
+    hsl(5, 77%, 71%),
+    hsl(329, 70%, 58%)
+  ); /* Instagram */
 --Red-700: hsl(348, 97%, 39%); /* YouTube */
 
 /*-----Dark Theme-----*/
---Linear-gradient-toggle: hsl(210, 79%, 56%) to hsl(146, 68%, 55%);
+--toggle-gradient: linear-gradient(
+    90deg,
+    hsl(210, 79%, 56%),
+    hsl(146, 68%, 55%)
+  );
 
 /*-----Light Theme-----*/
 --Gray-400: hsl(230, 22%, 74%); /* Toggle */
-
-/*   Neutral 
------Dark Theme-----*/ 
---Gray-950: hsl(230, 17%, 14%); /* BG */
---Gray-900: hsl(232, 19%, 15%); /* Top BG Pattern */
---Navy-950: hsl(228, 28%, 20%); /* Card BG */
---Gray-400: hsl(230, 22%, 74%); /* Text */
---White: hsl(0, 100%, 100%); /* Text */
 
 /*-----Light Theme-----*/
 --White: hsl(0, 100%, 100%); /* BG */
@@ -64,6 +65,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  color: var(--Gray-950);
 }
 
 .main__container {
@@ -74,6 +76,8 @@ h1, h2, h3, h4, h5, h6 {
 .header__container {
   display: flex;
   flex-direction: column;
+
+  position: relative;
 }
 
 .header__title {
@@ -113,14 +117,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #toggle__circle {
-  position: absolute; 
-  top: 2px; right: 3px; 
-  width: 20px; 
-  height: 20px; 
-  
-  background: var(--White); 
-  border-radius: 50%; 
-  transition: transform 0.2s ease;
+  position: absolute;
+  top: 2px;
+  right: 3px;    
+  width: 20px;
+  height: 20px;
+
+  background: var(--White);
+  border-radius: 50%;
+}
+
+.toggle__button,
+#toggle__circle {
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.dark-theme #toggle__circle {
+  transform: translateX(-24px);
 }
 
 /* Social Section */
@@ -279,13 +292,47 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   height: 4px;
   width: 100%;
-  background: linear-gradient(
-    90deg,
-    hsl(37, 97%, 70%),
-    hsl(329, 70%, 58%)
-  );
+  background: var(--instagram-gradient);
 }
 
 .youtube__border--top {
   border-top: 4px solid var(--Red-700);
+}
+
+/* Dark Theme */
+.dark-theme {
+  --White: hsl(230, 17%, 14%); /* BG */
+  --Blue-50: hsl(232, 19%, 15%); /* Top BG Pattern */
+  --Navy-50: hsl(228, 28%, 20%); /* Card BG */
+  --Gray-650: hsl(230, 22%, 74%); /* Text */
+  --Gray-950: hsl(0, 100%, 100%); /* Text */
+
+  --Gray-400: linear-gradient(
+    90deg,
+    hsl(210, 79%, 56%),
+    hsl(146, 68%, 55%)
+  ); /* Toggle */
+}
+
+/* Responsive Design */
+@media only screen and (min-width: 992px) {
+  .main__container {
+    padding: 2rem 8rem;
+  }
+
+  .header__container {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .header__divider {
+    display: none;
+  }
+
+  .toggle__container {
+    justify-content: flex-end;
+    gap: 1rem;
+
+  }
 }
