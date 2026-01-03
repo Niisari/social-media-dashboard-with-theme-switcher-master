@@ -277,6 +277,15 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* Utility Classes */
+.social__content:hover,
+.overview__content:hover,
+.social__content:focus,
+.overview__content:focus {
+  cursor: pointer;
+  filter: brightness(95%);
+  transition: filter 0.25s ease;
+}
+
 .facebook__border--top {
   border-top: 4px solid var(--Blue-600);
 }
