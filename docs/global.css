@@ -286,6 +286,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: filter 0.25s ease;
 }
 
+.dark-filter:hover,
+.dark-filter:focus {
+  cursor: pointer;
+  filter: brightness(120%);
+  transition: filter 0.25s ease;
+}
+
 .facebook__border--top {
   border-top: 4px solid var(--Blue-600);
 }
